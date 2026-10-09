@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ig">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akwụkwọ Nkọwaokwu Ọkammụta — Academic Igbo Dictionary</title>
+  <meta name="description" content="Akwụkwọ nkọwaokwu asụsụ Igbo n'ịntanetị nwere usoro agụmakwụkwọ mahadum, akara ụdaolu zuru ezu, Noto Serif, na nbudata Word/PDF.">
+  
+  <!-- Google Fonts: Noto Serif (Academic Standard for Igbo diacritics) & Outfit (Modern UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- docx library for direct client-side Word document generation -->
+  <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.min.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-academic">
+  <!-- Top Academic Navigation Bar -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-box">
+        <div class="brand-crest">
+          <span class="crest-symbol">Ọ</span>
+        </div>
+        <div class="brand-titles">
+          <h1 class="main-title">AKWỤKWỌ NKỌWAOKWU ỌKAMMỤTA</h1>
+          <p class="sub-title">Igbo Academic Lexicography Platform &bull; Noto Serif Orthography</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Live CMS Connection Status -->
+        <div class="status-badge" id="cmsStatusBadge" title="Njikọ Strapi CMS Backend">
+          <span class="status-dot pulsing"></span>
+          <span class="status-label" id="cmsStatusLabel">Na-elele CMS...</span>
+        </div>
+
+        <!-- Strapi Admin Panel Portal -->
+        <a href="http://localhost:1337/admin" target="_blank" rel="noreferrer" class="btn btn-outline" id="strapiAdminBtn" title="Meghee Strapi CMS Admin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Strapi CMS Admin
+        </a>
+
+        <!-- Dark / Academic Mode Toggle -->
+        <button class="btn btn-icon" id="themeToggleBtn" aria-label="Gbanwee Ọnọdụ Ìhè/Ọchịchịrị" title="Gbanwee Ụdị Agba">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Application Container -->
+  <main class="main-content">
+    
+    <!-- Control & Search Hub -->
+    <section class="control-panel">
+      <div class="search-section">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input 
+            type="search" 
+            id="dictionarySearchInput" 
+            class="search-input" 
+            placeholder="Chọọ mkpụrụokwu (d.k. 'mmīri', 'mmiri', 'mmàdụ̀', 'akwụkwọ')..."
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button class="clear-btn" id="clearSearchBtn" title="Hichapụ">✕</button>
+        </div>
+
+        <button class="btn btn-secondary" id="toggleKeyboardBtn" title="Kpatụ bọtịnụ ụdaolu Igbo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="10" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="14" y2="8"/><line x1="18" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="6" y2="12"/><line x1="10" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="14" y2="12"/><line x1="18" y1="12" x2="18" y2="12"/><line x1="7" y1="16" x2="17" y2="16"/></svg>
+          Ahụigodo Ụdaolu (Virtual Keyboard)
+        </button>
+      </div>
+
+      <!-- Collapsible Igbo Tone & Diacritics Virtual Keyboard -->
+      <div class="virtual-keyboard-panel" id="virtualKeyboard">
+        <div class="vk-header">
+          <span class="vk-title">Akara Ụdaolu na Mkpụrụedemede Pụrụ Iche n'Asụsụ Igbo</span>
+          <span class="vk-hint">Pịa akara ọ bụla ka o tinye ya ozugbo n'ọchụchọ</span>
+        </div>
+        <div class="vk-grid">
+          <div class="vk-group">
+            <span class="vk-group-label">Macron (Ụda Nsụda / Mid Tone):</span>
+            <div class="vk-keys">
+              <button class="vk-key" data-char="ā">ā</button>
+              <button class="vk-key" data-char="ē">ē</button>
+              <button class="vk-key" data-char="ī">ī</button>
+              <button class="vk-key" data-char="ō">ō</button>
+              <button class="vk-key" data-char="ū">ū</button>
+            </div>
+          </div>
+          <div class="vk-group">
+            <span class="vk-group-label">Acute (Ụda Elu / High Tone):</span>
+            <div class="vk-keys">
+              <button class="vk-key" data-char="á">á</button>
+              <button class="vk-key" data-char="é">é</button>
+              <button class="vk-key" data-char="í">í</button>
+              <button class="vk-key" data-char="ó">ó</button>
+              <button class="vk-key" data-char="ú">ú</button>
+            </div>
+          </div>
+          <div class="vk-group">
+            <span class="vk-group-label">Grave (Ụda Ala / Low Tone):</span>
+            <div class="vk-keys">
+              <button class="vk-key" data-char="à">à</button>
+              <button class="vk-key" data-char="è">è</button>
+              <button class="vk-key" data-char="ì">ì</button>
+              <button class="vk-key" data-char="ò">ò</button>
+              <button class="vk-key" data-char="ù">ù</button>
+            </div>
+          </div>
+          <div class="vk-group">
+            <span class="vk-group-label">Ụdaolu nwere Ntụpọ Okpuru (Sub-dots) &amp; Ṅ:</span>
+            <div class="vk-keys">
+              <button class="vk-key" data-char="ị">ị</button>
+              <button class="vk-key" data-char="ị̄">ị̄</button>
+              <button class="vk-key" data-char="ị́">ị́</button>
+              <button class="vk-key" data-char="ị̀">ị̀</button>
+              <button class="vk-key" data-char="ọ">ọ</button>
+              <button class="vk-key" data-char="ọ̄">ọ̄</button>
+              <button class="vk-key" data-char="ọ́">ọ́</button>
+              <button class="vk-key" data-char="ọ̀">ọ̀</button>
+              <button class="vk-key" data-char="ụ">ụ</button>
+              <button class="vk-key" data-char="ụ̄">ụ̄</button>
+              <button class="vk-key" data-char="ụ́">ụ́</button>
+              <button class="vk-key" data-char="ụ̀">ụ̀</button>
+              <button class="vk-key" data-char="ṅ">ṅ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters and View Switches -->
+      <div class="toolbar-row">
+        <div class="filter-group">
+          <label for="posFilterSelect" class="filter-label">Ụdị Okwu:</label>
+          <select id="posFilterSelect" class="custom-select">
+            <option value="all">Ụdị Okwu Niile (All)</option>
+            <option value="ahà">Ahà (Noun)</option>
+            <option value="ngwaa">Ngwaa (Verb)</option>
+            <option value="nkọwa">Nkọwa (Adjective/Adverb)</option>
+            <option value="nnọchiaha">Nnọchiaha (Pronoun)</option>
+          </select>
+        </div>
+
+        <div class="view-toggles">
+          <button class="toggle-btn active" id="viewBookBtn" title="Ụdị Akwụkwọ Mahadum (Academic Print View)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Nhazi Mahadum (Book View)
+          </button>
+          <button class="toggle-btn" id="viewCardsBtn" title="Ụdị Kaadị Mfe (Card Explorer)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Nyocha Mfe (Cards)
+          </button>
+        </div>
+
+        <!-- Export Hub (Core Requirement) -->
+        <div class="export-actions">
+          <button class="btn btn-accent" id="exportDocxBtn" title="Budata na Word (.docx)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Budata .DOCX
+          </button>
+          <button class="btn btn-accent" id="exportPdfBtn" title="Budata ma ọ bụ Bipụta na PDF (.pdf)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Bipụta .PDF
+          </button>
+          <button class="btn btn-outline" id="exportJsonBtn" title="Lee data API JSON">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            API JSON
+          </button>
+          <button class="btn btn-icon" id="refreshDataBtn" title="Megharịa data site na Strapi">
+            ↻
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic Book View Container (Exact formatting matching formatting.pdf) -->
+    <section class="dictionary-view-container">
+      
+      <!-- Academic Page Presentation Sheet -->
+      <article class="academic-sheet" id="academicSheet">
+        
+        <!-- Running Header -->
+        <header class="sheet-running-header">
+          <span class="header-left" id="runningHeaderLeft">MMADỤ̀ — MỌTỌ̀</span>
+          <span class="header-right">AKWỤKWỌ NKỌWAOKWU ỌKAMMỤTA</span>
+        </header>
+
+        <!-- Academic Letter Heading Divider -->
+        <div class="letter-divider">
+          <span class="letter-display" id="currentLetterHeading">M, m</span>
+          <div class="letter-divider-line"></div>
+        </div>
+
+        <!-- Dictionary Column Layout (Two-Column Academic Presentation) -->
+        <div class="academic-columns" id="academicColumns">
+          <!-- Left Column -->
+          <div class="academic-col" id="academicColLeft"></div>
+          <!-- Right Column -->
+          <div class="academic-col" id="academicColRight"></div>
+        </div>
+
+        <!-- Sheet Running Footer -->
+        <footer class="sheet-running-footer">
+          <span class="footer-project">Akwụkwọ Nkọwaokwu Ọkammụta (Igbo Lexicography Project)</span>
+          <span class="footer-page">Peeji 142</span>
+        </footer>
+
+      </article>
+
+      <!-- Interactive Card Grid (Shown when Cards View is toggled) -->
+      <div class="cards-grid hidden" id="cardsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Word Detail Modal -->
+  <dialog class="modal-dialog" id="wordDetailModal">
+    <div class="modal-content">
+      <header class="modal-header">
+        <div class="modal-title-box">
+          <h2 class="modal-headword" id="modalHeadword">mmīri</h2>
+          <span class="modal-pos" id="modalPos">ahà.</span>
+          <span class="modal-phonetic" id="modalPhonetic">[m̀.míː.ɾì]</span>
+        </div>
+        <button class="btn-close" id="closeModalBtn" title="Mechie">✕</button>
+      </header>
+      
+      <div class="modal-body" id="modalBody">
+        <!-- Modal content filled by app.js -->
+      </div>
+
+      <footer class="modal-footer">
+        <button class="btn btn-secondary" id="speakHeadwordBtn">
+          🔊 Gee Mkpọpụta
+        </button>
+        <button class="btn btn-primary" id="copyCitationBtn">
+          📋 Depụtaghachi Nkọwa (Copy Citation)
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- JSON API Viewer Modal -->
+  <dialog class="modal-dialog" id="jsonApiModal">
+    <div class="modal-content modal-large">
+      <header class="modal-header">
+        <div>
+          <h3 class="modal-title">API Endpoint Response (GET /api/entries)</h3>
+          <p class="modal-subtitle">Njikọ API maka ngwa edemede, nkọwa okwu vidiyo, na ntụgharị asụsụ</p>
+        </div>
+        <button class="btn-close" id="closeJsonModalBtn">✕</button>
+      </header>
+      <div class="modal-body">
+        <pre class="json-code-box"><code id="jsonCodeOutput"></code></pre>
+      </div>
+      <footer class="modal-footer">
+        <span class="api-endpoint-url">Endpoint: <code>http://localhost:1337/api/entries</code></span>
+        <button class="btn btn-primary" id="copyJsonBtn">Copy JSON</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotification">Ozi etinyere!</div>
+
+  <!-- Main Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

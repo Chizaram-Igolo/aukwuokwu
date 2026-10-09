@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "entries",
+  "info": {
+    "singularName": "entry",
+    "pluralName": "entries",
+    "displayName": "Dictionary Entry",
+    "description": "Igbo Academic Dictionary Entry"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "headword": {
+      "type": "string",
+      "required": true
+    },
+    "simplified": {
+      "type": "string"
+    },
+    "partOfSpeech": {
+      "type": "enumeration",
+      "enum": [
+        "ahà (noun)",
+        "ngwaa (verb)",
+        "nkọwa (adjective)",
+        "nnọchiaha (pronoun)",
+        "nkwuwa (adverb)",
+        "njikọ (conjunction)",
+        "mbụrụ (preposition)",
+        "nkpọkọ (interjection)",
+        "ọzọ (other)"
+      ],
+      "default": "ahà (noun)"
+    },
+    "phonetic": {
+      "type": "string"
+    },
+    "dialect": {
+      "type": "string",
+      "default": "Igbo Izugbe (General Igbo)"
+    },
+    "definitions": {
+      "type": "json"
+    },
+    "etymology": {
+      "type": "text"
+    },
+    "crossReferences": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}
