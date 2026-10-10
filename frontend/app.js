@@ -161,6 +161,233 @@ const FALLBACK_ENTRIES = [
     etymology: "Sitere na mgbọrọgwụ ngwaa “sụ́” (ikwu okwu).",
     crossReferences: "okwu, olumba",
     notes: "Okwu dị mkpa maka ọmụmụ asụsụ Igbo."
+  },
+  {
+    id: 8,
+    headword: "ùdò",
+    simplified: "udo",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[ù.dò]",
+    dialect: "Igbo Izugbe (General Igbo)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Ọ̄nọ̄dụ̄ nke enweghị ọgụ, esemokwu ma ọ bụ agha; ịdị n’otu na nchekwa.",
+        meaning_en: "Peace, harmony, tranquility; absence of conflict.",
+        examples: [
+          { igbo: "Anyị na-ekpe ekpere maka ùdò n’ala Igbo.", english: "We pray for peace in Igboland." },
+          { igbo: "Ùdò dị mma karịa ọgụ.", english: "Peace is better than fighting." }
+        ]
+      }
+    ],
+    etymology: "Proto-Igbo *u-do (calmness).",
+    crossReferences: "ndokwa, nwayọọ, ucheudo",
+    notes: "Okwu a na-akpọkarị na ngọzi na ekpere."
+  },
+  {
+    id: 9,
+    headword: "anyānwụ̄",
+    simplified: "anyanwu",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[á.ɲáː.ŋʷʊ́ː]",
+    dialect: "Igbo Izugbe (General Igbo)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Kpakpando kacha nso n’ụwa nke na-enye ìhè na okpomọkụ n’ehihie.",
+        meaning_en: "The sun; celestial body that illuminates the earth.",
+        examples: [
+          { igbo: "Anyānwụ̄ na-acha nke ọma taa.", english: "The sun is shining brightly today." }
+        ]
+      }
+    ],
+    etymology: "Anya (eye) + anwụ (sunlight/sky).",
+    crossReferences: "ìhè, ehihie, mbara igwe",
+    notes: "N’omenala Igbo, a na-asọpụrụ Anyanwụ dịka chi nke ìhè na ịdị ọcha."
+  },
+  {
+    id: 10,
+    headword: "ezinụ̄lọ̀",
+    simplified: "ezinulo",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[é.zí.nʊ́ː.lɔ̀]",
+    dialect: "Igbo Izugbe (General Igbo)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Nne, nna, na ụmụaka ma ọ bụ ndị ikwu bi n’otu ebe ma na-elekọta onwe ha.",
+        meaning_en: "Family, household.",
+        examples: [
+          { igbo: "Ezinụ̄lọ̀ anyị bụ ezinụlọ hụrụ ibe ha n’anya.", english: "Our family is a loving family." }
+        ]
+      }
+    ],
+    etymology: "Ezi (compound) + na (and) + ụlọ (house).",
+    crossReferences: "ụmụnna, ikwu, agbụrụ",
+    notes: "Isi mmalite nke obodo na ọdịbendị Igbo."
+  },
+  {
+    id: 11,
+    headword: "àlà",
+    simplified: "ala",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[à.là]",
+    dialect: "Igbo Izugbe / Owerri (ana/ani)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Ebe mmadụ na-azọ ụkwụ; akụkụ ụwa nke akọrọ na-enweghị mmiri.",
+        meaning_en: "Earth, land, ground, soil.",
+        examples: [
+          { igbo: "Ala Igbo bụ ala na-amị mkpụrụ.", english: "Igboland is a fertile land." }
+        ]
+      },
+      {
+        id: 2,
+        meaning: "Chi nne na-echebe ụkpụrụ na omume ọma n’omenala Igbo.",
+        meaning_en: "Earth goddess; moral deity of fertility.",
+        examples: [
+          { igbo: "Imerụ àlà bụ nnukwu ihe arụ.", english: "Desecrating the earth goddess is an abomination." }
+        ]
+      }
+    ],
+    etymology: "Proto-Igboid *à-là.",
+    crossReferences: "ana, ani, elo",
+    notes: "Olumba dị iche iche na-akpọ ya 'ana' ma ọ bụ 'ani'."
+  },
+  {
+    id: 12,
+    headword: "ọ́mụ̀mà",
+    simplified: "omuma",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[ɔ́.mʊ̀.mà]",
+    dialect: "Igbo Izugbe (General Igbo)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Ịghọta ihe nke ọma; amamihe na nghọta sitere n’ọmụmụ ma ọ bụ ahụmịhe.",
+        meaning_en: "Knowledge, comprehension, understanding.",
+        examples: [
+          { igbo: "Ọ́mụ̀mà asụsụ Igbo na-eme ka mmadụ mara omenala ya.", english: "Knowledge of Igbo enables cultural literacy." }
+        ]
+      }
+    ],
+    etymology: "Sitere na ngwaa 'ma' (to know).",
+    crossReferences: "amamihe, nghọta, ako",
+    notes: "Okwu pụtara ihe n’agụmakwụkwọ na mahadum."
+  },
+  {
+    id: 13,
+    headword: "àkụ́kọ́",
+    simplified: "akuko",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[à.kʊ́.kɔ́]",
+    dialect: "Igbo Izugbe (General Igbo)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Ihe e dere ma ọ bụ kọọ gbasara ihe mere n’oge gara aga ma ọ bụ akụkọ ifo.",
+        meaning_en: "Story, tale, history, narration.",
+        examples: [
+          { igbo: "Nne ochie na-akọrọ anyị àkụ́kọ́ ifo n’abalị ọnwa.", english: "Grandmother tells us folktales on moonlit nights." }
+        ]
+      }
+    ],
+    etymology: "Sitere na ngwaa 'kọ' (to narrate/tell).",
+    crossReferences: "akụkọ mgbe ochie, akụkọ ifo",
+    notes: "A na-ejikwa ya akọwapụta akụkọ ụwa (news)."
+  },
+  {
+    id: 14,
+    headword: "ọ̄nụ̄",
+    simplified: "onu",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[ɔ̄.nʊ̄]",
+    dialect: "Igbo Izugbe (General Igbo)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Akụkụ ahụ mmadụ ma ọ bụ anụmanụ e ji eri nri na ekwu okwu.",
+        meaning_en: "Mouth, orifice; speech organ.",
+        examples: [
+          { igbo: "Kpachara anya n’ihe na-esi n’ọ̄nụ̄ gị apụta.", english: "Be careful of what comes out of your mouth." }
+        ]
+      },
+      {
+        id: 2,
+        meaning: "Ego e ji azụta ihe (ọnụego).",
+        meaning_en: "Price, cost, valuation.",
+        examples: [
+          { igbo: "Ọ̄nụ̄ ngwaahịa a dị oke ọnụ.", english: "The price of this commodity is high." }
+        ]
+      }
+    ],
+    etymology: "Proto-Igbo *o-nu.",
+    crossReferences: "ọnụego, okwu, ọnụ ụzọ",
+    notes: "Nwere ọtụtụ nkọwa dabere n’ahịrịokwu."
+  },
+  {
+    id: 15,
+    headword: "égwú",
+    simplified: "egwu",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[é.ɡʷú]",
+    dialect: "Igbo Izugbe (General Igbo)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Ụda olu ọma, ịgba na ngwá egwu a haziri nke ọma maka ịnụ ụtọ ma ọ bụ ịgba nkwa.",
+        meaning_en: "Music, dance, song, recreational performance.",
+        examples: [
+          { igbo: "Ụmụntakịrị na-agba égwú mgbe a na-akụ ọ́jà.", english: "The children dance when the flute is played." }
+        ]
+      }
+    ],
+    etymology: "Proto-Igboid *e-gwu.",
+    crossReferences: "egwuregwu, ukwe, nkwa",
+    notes: "Lezie anya: 'egwù' (low tone) pụtara egwu/ụjọ; 'égwú' (high tone) pụtara music."
+  },
+  {
+    id: 16,
+    headword: "ànụ̄mànụ̀",
+    simplified: "anumanu",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[à.nʊ́ː.mà.nʊ̀]",
+    dialect: "Igbo Izugbe (General Igbo)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Ihe ọ bụla e kere eke nwere ndụ mana o nweghị uche dịka mmadụ.",
+        meaning_en: "Animal, beast, creature.",
+        examples: [
+          { igbo: "Ànụ̄mànụ̀ dị iche iche bi n’ọhịa.", english: "Various animals live in the forest." }
+        ]
+      }
+    ],
+    etymology: "Anụ + m + anụ.",
+    crossReferences: "anụ ọhịa, anụ ụlọ",
+    notes: "Gụnyere anụ ọhịa na anụ ụlọ."
+  },
+  {
+    id: 17,
+    headword: "ọ̄chị̄chị̄",
+    simplified: "ochichi",
+    partOfSpeech: "ahà (noun)",
+    phonetic: "[ɔ̄.tʃīː.tʃīː]",
+    dialect: "Igbo Izugbe (General Igbo)",
+    definitions: [
+      {
+        id: 1,
+        meaning: "Usoro na nchịkwa nke ndị isi ji edu obodo ma ọ bụ nzukọ.",
+        meaning_en: "Governance, leadership, administration, rule.",
+        examples: [
+          { igbo: "Ọ̄chị̄chị̄ eziokwu na-eweta ọganihu n’obodo.", english: "Righteous leadership brings community progress." }
+        ]
+      }
+    ],
+    etymology: "Sitere na ngwaa 'chị' (to rule/lead).",
+    crossReferences: "onye ndu, eze",
+    notes: "Okwu dị mkpa na ndọrọ ndọrọ ọchịchị na agụmakwụkwọ."
   }
 ];
 
@@ -273,6 +500,14 @@ class AcademicDictionaryApp {
     this.jsonApiModal.addEventListener('click', (e) => {
       if (e.target === this.jsonApiModal) this.jsonApiModal.close();
     });
+
+    // API Explorer snippet tabs
+    document.getElementById('apiModalTabs')?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.api-tab-btn');
+      if (!btn) return;
+      this.activeApiTab = btn.dataset.tab;
+      this.updateApiModalContent();
+    });
   }
 
   insertCharIntoSearch(char) {
@@ -322,13 +557,15 @@ class AcademicDictionaryApp {
    */
   async fetchData() {
     try {
-      const response = await fetch('http://localhost:1337/api/entries', {
+      const response = await fetch('http://localhost:1337/api/entries?pagination[pageSize]=250', {
         headers: { 'Accept': 'application/json' }
       });
       if (response.ok) {
         const json = await response.json();
         if (json.data && Array.isArray(json.data) && json.data.length > 0) {
-          this.entries = json.data.map(item => this.normalizeEntry(item));
+          this.entries = json.data
+            .map(item => this.normalizeEntry(item))
+            .sort((a, b) => (a.simplified || a.headword).localeCompare(b.simplified || b.headword, 'ig'));
           this.updateCmsStatus(true, `Jikọrọ na Strapi (${this.entries.length} Okwu)`);
           this.filteredEntries = [...this.entries];
           return;
@@ -337,7 +574,7 @@ class AcademicDictionaryApp {
       throw new Error('API returned empty or non-200');
     } catch (err) {
       console.warn('Could not reach Strapi CMS API, using academic dataset:', err);
-      this.entries = [...FALLBACK_ENTRIES];
+      this.entries = [...FALLBACK_ENTRIES].sort((a, b) => (a.simplified || a.headword).localeCompare(b.simplified || b.headword, 'ig'));
       this.filteredEntries = [...this.entries];
       this.updateCmsStatus(false, 'Strapi anọghị n’ọrụ (Data Obodo)');
     }
@@ -449,6 +686,18 @@ class AcademicDictionaryApp {
     const firstWord = this.filteredEntries[0].headword.toUpperCase();
     const lastWord = this.filteredEntries[this.filteredEntries.length - 1].headword.toUpperCase();
     this.runningHeaderLeft.textContent = `${firstWord} — ${lastWord}`;
+
+    // Update dynamic letter heading
+    const letterHeading = document.getElementById('currentLetterHeading');
+    if (letterHeading) {
+      const firstChar = this.stripTones(this.filteredEntries[0].headword).charAt(0).toUpperCase();
+      const lastChar = this.stripTones(this.filteredEntries[this.filteredEntries.length - 1].headword).charAt(0).toUpperCase();
+      if (firstChar === lastChar) {
+        letterHeading.textContent = `${firstChar}, ${firstChar.toLowerCase()}`;
+      } else {
+        letterHeading.textContent = `${firstChar} — ${lastChar}`;
+      }
+    }
 
     // Split entries into two balanced columns
     const midPoint = Math.ceil(this.filteredEntries.length / 2);
@@ -614,21 +863,69 @@ class AcademicDictionaryApp {
   }
 
   openJsonModal() {
-    const jsonOutput = document.getElementById('jsonCodeOutput');
-    jsonOutput.textContent = JSON.stringify({
-      status: "success",
-      endpoint: "http://localhost:1337/api/entries",
-      timestamp: new Date().toISOString(),
-      total_count: this.filteredEntries.length,
-      data: this.filteredEntries
-    }, null, 2);
+    this.activeApiTab = 'json';
+    this.updateApiModalContent();
     this.jsonApiModal.showModal();
+  }
+
+  updateApiModalContent() {
+    const jsonOutput = document.getElementById('jsonCodeOutput');
+    const tabs = document.querySelectorAll('.api-tab-btn');
+    tabs.forEach(btn => btn.classList.toggle('active', btn.dataset.tab === this.activeApiTab));
+
+    if (this.activeApiTab === 'json') {
+      jsonOutput.textContent = JSON.stringify({
+        status: "success",
+        endpoint: "http://localhost:1337/api/entries",
+        timestamp: new Date().toISOString(),
+        total_count: this.filteredEntries.length,
+        data: this.filteredEntries
+      }, null, 2);
+    } else if (this.activeApiTab === 'js') {
+      jsonOutput.textContent = `// JavaScript / Node.js Fetch Example
+async function getIgboWords(query = '') {
+  const url = query 
+    ? \`http://localhost:1337/api/entries?filters[simplified][\$containsi]=\${encodeURIComponent(query)}\`
+    : 'http://localhost:1337/api/entries?pagination[pageSize]=100';
+
+  const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+  const { data } = await res.json();
+  return data;
+}
+
+// Example: Search for 'udo'
+getIgboWords('udo').then(entries => console.log(entries));`;
+    } else if (this.activeApiTab === 'python') {
+      jsonOutput.textContent = `# Python (Requests) NLP & Subtitle Pipeline
+import requests
+
+def search_igbo_dictionary(query: str):
+    url = "http://localhost:1337/api/entries"
+    params = {"filters[simplified][$containsi]": query.lower()}
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        return response.json().get("data", [])
+    return []
+
+# Example: Look up 'udo'
+words = search_igbo_dictionary("udo")
+for w in words:
+    print(f"{w['headword']} ({w['partOfSpeech']}): {w['definitions'][0]['meaning']}")`;
+    } else if (this.activeApiTab === 'curl') {
+      jsonOutput.textContent = `# cURL: Fetch all published entries with tone marks
+curl -X GET "http://localhost:1337/api/entries?pagination[pageSize]=100" \\
+     -H "Accept: application/json"
+
+# cURL: Search tone-insensitively for 'udo'
+curl -X GET "http://localhost:1337/api/entries?filters[simplified][\$containsi]=udo" \\
+     -H "Accept: application/json"`;
+    }
   }
 
   copyJsonData() {
     const jsonText = document.getElementById('jsonCodeOutput').textContent;
     navigator.clipboard.writeText(jsonText);
-    this.showToast('E depụtaghachiri JSON!');
+    this.showToast('E depụtaghachiri koodu (Copied to clipboard)!');
   }
 
   /**
@@ -647,6 +944,14 @@ class AcademicDictionaryApp {
 
       const children = [];
 
+      // Dynamic letter heading for Word document
+      let docHeadingText = "M, m";
+      if (this.filteredEntries.length > 0) {
+        const firstC = this.stripTones(this.filteredEntries[0].headword).charAt(0).toUpperCase();
+        const lastC = this.stripTones(this.filteredEntries[this.filteredEntries.length - 1].headword).charAt(0).toUpperCase();
+        docHeadingText = firstC === lastC ? `${firstC}, ${firstC.toLowerCase()}` : `${firstC} — ${lastC}`;
+      }
+
       // Academic Document Title Header
       children.push(
         new Paragraph({
@@ -656,7 +961,7 @@ class AcademicDictionaryApp {
           spacing: { after: 120 }
         }),
         new Paragraph({
-          text: "M, m",
+          text: docHeadingText,
           heading: HeadingLevel.HEADING_1,
           alignment: AlignmentType.LEFT,
           spacing: { before: 200, after: 240 }

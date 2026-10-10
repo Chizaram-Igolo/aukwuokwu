@@ -249,22 +249,28 @@
     </div>
   </dialog>
 
-  <!-- JSON API Viewer Modal -->
+  <!-- JSON API Viewer & Developer Explorer Modal -->
   <dialog class="modal-dialog" id="jsonApiModal">
     <div class="modal-content modal-large">
       <header class="modal-header">
         <div>
-          <h3 class="modal-title">API Endpoint Response (GET /api/entries)</h3>
-          <p class="modal-subtitle">Njikọ API maka ngwa edemede, nkọwa okwu vidiyo, na ntụgharị asụsụ</p>
+          <h3 class="modal-title">API Explorer &amp; Developer Integration</h3>
+          <p class="modal-subtitle">Njikọ API maka ngwa edemede, nkọwa okwu vidiyo, na ntụgharị asụsụ (NLP &amp; Localization)</p>
         </div>
         <button class="btn-close" id="closeJsonModalBtn">✕</button>
       </header>
+      <div class="api-modal-tabs" id="apiModalTabs">
+        <button class="api-tab-btn active" data-tab="json">JSON Response</button>
+        <button class="api-tab-btn" data-tab="js">JavaScript (Fetch)</button>
+        <button class="api-tab-btn" data-tab="python">Python (Requests)</button>
+        <button class="api-tab-btn" data-tab="curl">cURL</button>
+      </div>
       <div class="modal-body">
         <pre class="json-code-box"><code id="jsonCodeOutput"></code></pre>
       </div>
       <footer class="modal-footer">
         <span class="api-endpoint-url">Endpoint: <code>http://localhost:1337/api/entries</code></span>
-        <button class="btn btn-primary" id="copyJsonBtn">Copy JSON</button>
+        <button class="btn btn-primary" id="copyJsonBtn">Copy Code</button>
       </footer>
     </div>
   </dialog>
