@@ -908,6 +908,37 @@ body {
   border-radius: 4px;
 }
 
+.api-modal-tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem 0;
+  border-bottom: 1px solid var(--border-sheet);
+  background: var(--bg-card);
+}
+
+.api-tab-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+}
+
+.api-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.api-tab-btn.active {
+  color: var(--accent-burgundy);
+  border-bottom-color: var(--accent-burgundy);
+  font-weight: 600;
+}
+
 /* --------------------------------------------------------------------------
    Toast Notification
    -------------------------------------------------------------------------- */

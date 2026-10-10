@@ -50,11 +50,13 @@ This update introduces an automated bulk ingestion pipeline, expands the diction
 ## 🛠️ Changed
 
 ### 1. Frontend Client Application
-* **`frontend/app.js`**
+* **`frontend/app.js` & `frontend/index.html` & `frontend/style.css`**
   * **API Pagination:** Updated API request to `?pagination[pageSize]=250` so entries beyond the default limit of 25 are loaded seamlessly.
   * **Collation & Sorting:** Entries are sorted alphabetically using locale-aware comparison (`a.localeCompare(b, 'ig')`).
   * **Dynamic Letter Divider:** The book view letter heading (`currentLetterHeading`) now adapts dynamically to the active search or page range (e.g., displaying **`A — U`** or **`M, m`**).
   * **Dynamic Word Export (.docx):** The letter heading in downloaded `.docx` documents now matches the dynamic letter range of exported entries.
+  * **Interactive API Explorer Modal:** Upgraded the JSON viewer modal into a multi-language integration hub with 4 switchable snippet tabs (**JSON Response**, **JavaScript Fetch**, **Python Requests**, and **cURL**) plus quick one-click code copy.
+  * **Offline Resilience:** Synchronized all 17 lexicon entries into the client fallback cache, ensuring full dictionary browsing even when Strapi is offline.
 
 ### 2. Project Specification & Handoff Document
 * **`Oru_Antigravity_Handoff.md`**
