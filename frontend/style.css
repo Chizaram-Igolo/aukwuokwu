@@ -3,9 +3,9 @@
    ========================================================================== */
 
 :root {
-  /* Typography */
+  /* Typography — Unified Scholarly Serif (Noto Serif) for complete diacritic fidelity & academic aesthetics */
   --font-serif: 'Noto Serif', Cambria, Georgia, serif;
-  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: 'Noto Serif', Cambria, Georgia, serif;
   --font-mono: 'Fira Code', monospace;
 
   /* Color Palette (Light Academic / Parchment Mode) */
@@ -130,9 +130,11 @@ body {
 }
 
 .brand-titles .sub-title {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
 }
 
 .header-actions {
@@ -518,8 +520,8 @@ body {
   align-items: center;
   padding-bottom: 0.6rem;
   border-bottom: 2px solid var(--text-primary);
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--text-primary);
