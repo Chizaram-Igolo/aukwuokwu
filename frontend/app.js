@@ -322,13 +322,15 @@ class AcademicDictionaryApp {
    */
   async fetchData() {
     try {
-      const response = await fetch('http://localhost:1337/api/entries', {
+      const response = await fetch('http://localhost:1337/api/entries?pagination[pageSize]=250', {
         headers: { 'Accept': 'application/json' }
       });
       if (response.ok) {
         const json = await response.json();
         if (json.data && Array.isArray(json.data) && json.data.length > 0) {
-          this.entries = json.data.map(item => this.normalizeEntry(item));
+          this.entries = json.data
+            .map(item => this.normalizeEntry(item))
+            .sort((a, b) => (a.simplified || a.headword).localeCompare(b.simplified || b.headword, 'ig'));
           this.updateCmsStatus(true, `Jikọrọ na Strapi (${this.entries.length} Okwu)`);
           this.filteredEntries = [...this.entries];
           return;
@@ -337,7 +339,7 @@ class AcademicDictionaryApp {
       throw new Error('API returned empty or non-200');
     } catch (err) {
       console.warn('Could not reach Strapi CMS API, using academic dataset:', err);
-      this.entries = [...FALLBACK_ENTRIES];
+      this.entries = [...FALLBACK_ENTRIES].sort((a, b) => (a.simplified || a.headword).localeCompare(b.simplified || b.headword, 'ig'));
       this.filteredEntries = [...this.entries];
       this.updateCmsStatus(false, 'Strapi anọghị n’ọrụ (Data Obodo)');
     }
@@ -449,6 +451,18 @@ class AcademicDictionaryApp {
     const firstWord = this.filteredEntries[0].headword.toUpperCase();
     const lastWord = this.filteredEntries[this.filteredEntries.length - 1].headword.toUpperCase();
     this.runningHeaderLeft.textContent = `${firstWord} — ${lastWord}`;
+
+    // Update dynamic letter heading
+    const letterHeading = document.getElementById('currentLetterHeading');
+    if (letterHeading) {
+      const firstChar = this.stripTones(this.filteredEntries[0].headword).charAt(0).toUpperCase();
+      const lastChar = this.stripTones(this.filteredEntries[this.filteredEntries.length - 1].headword).charAt(0).toUpperCase();
+      if (firstChar === lastChar) {
+        letterHeading.textContent = `${firstChar}, ${firstChar.toLowerCase()}`;
+      } else {
+        letterHeading.textContent = `${firstChar} — ${lastChar}`;
+      }
+    }
 
     // Split entries into two balanced columns
     const midPoint = Math.ceil(this.filteredEntries.length / 2);
@@ -647,6 +661,14 @@ class AcademicDictionaryApp {
 
       const children = [];
 
+      // Dynamic letter heading for Word document
+      let docHeadingText = "M, m";
+      if (this.filteredEntries.length > 0) {
+        const firstC = this.stripTones(this.filteredEntries[0].headword).charAt(0).toUpperCase();
+        const lastC = this.stripTones(this.filteredEntries[this.filteredEntries.length - 1].headword).charAt(0).toUpperCase();
+        docHeadingText = firstC === lastC ? `${firstC}, ${firstC.toLowerCase()}` : `${firstC} — ${lastC}`;
+      }
+
       // Academic Document Title Header
       children.push(
         new Paragraph({
@@ -656,7 +678,7 @@ class AcademicDictionaryApp {
           spacing: { after: 120 }
         }),
         new Paragraph({
-          text: "M, m",
+          text: docHeadingText,
           heading: HeadingLevel.HEADING_1,
           alignment: AlignmentType.LEFT,
           spacing: { before: 200, after: 240 }
