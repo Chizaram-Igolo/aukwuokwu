@@ -432,8 +432,15 @@ class AcademicDictionaryApp {
   async init() {
     this.setupEventListeners();
     this.setupTheme();
+    this.renderIcons();
     await this.fetchData();
     this.render();
+  }
+
+  renderIcons() {
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
   }
 
   setupEventListeners() {
@@ -477,10 +484,15 @@ class AcademicDictionaryApp {
 
     // Refresh button
     this.refreshDataBtn.addEventListener('click', async () => {
+      this.refreshDataBtn.classList.add('spinning');
       this.showToast('Na-adọta data ọhụrụ site na Strapi...');
-      await this.fetchData();
-      this.render();
-      this.showToast('Data ọhụrụ abịala!');
+      try {
+        await this.fetchData();
+        this.render();
+        this.showToast('Data ọhụrụ abịala!');
+      } finally {
+        this.refreshDataBtn.classList.remove('spinning');
+      }
     });
 
     // Theme toggle
@@ -837,6 +849,7 @@ class AcademicDictionaryApp {
     `;
 
     this.wordDetailModal.showModal();
+    this.renderIcons();
   }
 
   speakCurrentWord() {
@@ -866,6 +879,7 @@ class AcademicDictionaryApp {
     this.activeApiTab = 'json';
     this.updateApiModalContent();
     this.jsonApiModal.showModal();
+    this.renderIcons();
   }
 
   updateApiModalContent() {
